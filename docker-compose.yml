@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./go-backend-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      - DB_USER=appuser
+      - DB_PASSWORD=appsecret
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_NAME=url-analyser
+
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: url-analyser
+      MYSQL_USER: appuser
+      MYSQL_PASSWORD: appsecret
+    ports:
+     - "3307:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+  frontend:
+    build:
+      context: ./frontend-app
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - CHOKIDAR_USEPOLLING=true 
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./frontend-app:/app
+      - /app/node_modules
+
+volumes:
+  db_data:
