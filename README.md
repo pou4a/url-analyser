@@ -114,10 +114,3 @@ The `docker-compose.yml` file defines the following services:
 -   [Go Documentation](https://golang.org/doc/)
 -   [Docker Compose Documentation](https://docs.docker.com/compose/)
 
----
-
-Let me know if you need further adjustments!
-
-pou4a: lets change the name of project
-
-GitHub Copilot: To change the name of the project, you need to update the following:
