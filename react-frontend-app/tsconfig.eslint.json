@@ -1,0 +1,15 @@
+// Used for running ESLint on all lintable files
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "incremental": true,
+  },
+  "include": [
+    "./src/**/*",
+    "./config/**/*",
+    "./scripts/**/*",
+    "./cypress/**/*",
+    "./tests/**/*",
+    "./*.js"
+  ]
+}
