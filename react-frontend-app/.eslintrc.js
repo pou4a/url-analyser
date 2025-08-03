@@ -6,9 +6,9 @@ module.exports = {
   },
   plugins: ['@typescript-eslint', 'import'],
   extends: [
-    'plugin:storybook/recommended',
     'plugin:prettier/recommended',
     'plugin:react/jsx-runtime',
+    'prettier',
   ],
   env: {
     jest: true,

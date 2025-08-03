@@ -12,14 +12,14 @@ services:
       - DB_PASSWORD=appsecret
       - DB_HOST=db
       - DB_PORT=3306
-      - DB_NAME=url-analyser
+      - DB_NAME=url_analyser
 
   db:
     image: mysql:8.0
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: example
-      MYSQL_DATABASE: url-analyser
+      MYSQL_DATABASE: url_analyser
       MYSQL_USER: appuser
       MYSQL_PASSWORD: appsecret
     ports:
@@ -29,7 +29,7 @@ services:
 
   frontend:
     build:
-      context: ./frontend-app
+      context: ./react-frontend-app
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
@@ -38,7 +38,7 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - ./frontend-app:/app
+      - ./react-frontend-app:/app
       - /app/node_modules
 
 volumes:
